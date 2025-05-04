@@ -6,74 +6,57 @@
     <div class="auth-wrapper v3">
     <div class="auth-form">
       <div class="auth-header">
-      <a href="#"><img src="../assets/images/logo-dark.svg" alt="img"></a>
+      <a class="navbar-brand fs-3" href="/">
+        <i class="fa fa-graduation-cap text-black"></i>
+
+        BUKABEM
+      </a>
       </div>
       <div class="card my-5">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-end mb-4">
-        <h3 class="mb-0"><b>Sign up</b></h3>
-        <a href="#" class="link-primary">Already have an account?</a>
+        <h3 class="mb-0"><b>Cadastar-se como mentor</b></h3>
+        <a href="{{ route('auth.login.show') }}" class="link-primary">Já tem conta?</a>
         </div>
+        <!-- @if ($successMessage = session('auth')) -->
+        <!-- @endif -->
+        <!-- @if ($successMessage = session('auth')) -->
+        <!-- @endif -->
+        <div class="alert alert-success" role="alert"> A simple success alert—check it out! </div>
+        <div class="alert alert-danger" role="alert"> A simple success alert—check it out! </div>
         <div class="row">
         <div class="col-md-6">
           <div class="form-group mb-3">
-          <label class="form-label">First Name*</label>
+          <label class="form-label">Primeiro Nome*</label>
           <input type="text" class="form-control" placeholder="First Name">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group mb-3">
-          <label class="form-label">Last Name</label>
+          <label class="form-label">Último Nome</label>
           <input type="text" class="form-control" placeholder="Last Name">
           </div>
         </div>
         </div>
+
         <div class="form-group mb-3">
-        <label class="form-label">Company</label>
-        <input type="text" class="form-control" placeholder="Company">
-        </div>
-        <div class="form-group mb-3">
-        <label class="form-label">Email Address*</label>
-        <input type="email" class="form-control" placeholder="Email Address">
+        <label class="form-label">Email*</label>
+        <input type="email" name="email" class="form-control" placeholder="Email Address">
         </div>
         <div class="form-group mb-3">
         <label class="form-label">Password</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
-        <p class="mt-4 text-sm text-muted">By Signing up, you agree to our <a href="#" class="text-primary"> Terms of
-          Service </a> and <a href="#" class="text-primary"> Privacy Policy</a></p>
+
+        <div class="form-group mb-3">
+        <label class="form-label">Confirmar Password</label>
+        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar Password">
+        </div>
         <div class="d-grid mt-3">
-        <button type="button" class="btn btn-primary">Create Account</button>
+        <button type="button" class="btn btn-primary">Criar Conta</button>
         </div>
-        <div class="saprator mt-3">
-        <span>Sign up with</span>
-        </div>
-        <div class="row">
-        <div class="col-4">
-          <div class="d-grid">
-          <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-            <img src="../assets/images/authentication/google.svg" alt="img"> <span
-            class="d-none d-sm-inline-block"> Google</span>
-          </button>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="d-grid">
-          <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-            <img src="../assets/images/authentication/twitter.svg" alt="img"> <span
-            class="d-none d-sm-inline-block"> Twitter</span>
-          </button>
-          </div>
-        </div>
-        <div class="col-4">
-          <div class="d-grid">
-          <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-            <img src="../assets/images/authentication/facebook.svg" alt="img"> <span
-            class="d-none d-sm-inline-block"> Facebook</span>
-          </button>
-          </div>
-        </div>
-        </div>
+
+
 
       </div>
       </div>
@@ -83,7 +66,7 @@
       </div>
       <div class="col-auto my-1">
         <ul class="list-inline footer-link mb-0">
-        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="/">Home</a></li>
         </ul>
       </div>
       </div>
