@@ -10,7 +10,7 @@
 
       <div class="col-md-12">
       <div class="page-header-title">
-        <h2 class="mt-4">Dashboard Administrador</h2>
+        <h2 class="mt-4">Dashboard Estudante</h2>
       </div>
       </div>
     </div>

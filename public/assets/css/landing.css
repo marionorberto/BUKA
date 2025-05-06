@@ -77,11 +77,13 @@ header {
   display: flex;
   align-items: center;
   min-height: 100vh;
-  background-image: url('../images/bg-photo.jpg');
+  filter: brightness(50);
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
 /* header::after {
   content: "";
   position: absolute;

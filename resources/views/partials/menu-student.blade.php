@@ -11,7 +11,7 @@
       <ul class="pc-navbar">
         <li class="pc-item">
 
-          <a href="{{ route('admin.dashboard.index') }}" class="pc-link">
+          <a href="{{ route('student.dashboard.index') }}" class="pc-link">
             <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
             <span class="pc-mtext">Dashboard</span>
           </a>
