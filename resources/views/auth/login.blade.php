@@ -17,14 +17,18 @@
       <div class="card my-5">
       <form action="{{ route('auth.login') }}" method="post" class="card-body">
         @csrf
+        @if ($successMessage = session('success'))
+      <div class="alert alert-success" role="alert"> {{ $successMessage }}</div>
+      @endif
+        @if ($errorMessage = session('error'))
+      <div class="alert alert-danger" role="alert"> {{ $errorMessage }}</div>
+      @endif
         <div class="d-flex justify-content-between align-items-end mb-4">
         <h3 class="mb-0"><b>Login</b></h3>
         <a href="{{ route('auth.choose-role') }}" class="link-primary">Criar Conta?</a>
         </div>
 
-        @if ($errorMessage = session('error'))
-      <div class="alert alert-danger" role="alert"> {{ $errorMessage }}</div>
-      @endif
+
 
         <div class="form-group mb-3">
         <label class="form-label">Email </label>

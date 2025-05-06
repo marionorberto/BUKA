@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
-    public $incrementing = false;         // Desativa autoincremento
-    protected $keyType = 'string';        // Define tipo da chave como string
+    use HasFactory, HasUuids;
 
-    protected $primaryKey = 'id_user';
-    protected $table = 'users';
+    protected $keyType = 'string';
+    public $incrementing = false;
+    public $table = 'users';
+    public $primaryKey = 'id_user';
     protected $fillable = [
         'id',
         'firstname',
@@ -20,17 +23,28 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'role'
+        'role',
+        'active'
     ];
 
-    protected static function boot()
+    protected static function booted()
     {
         parent::boot();
 
-        static::creating(function ($model) {
-            if (empty($model->id_user)) {
-                $model->id_user = (string) Str::uuid();
+        // Gerar UUID automaticamente ao criar o modelo
+        static::creating(function ($user) {
+            if (empty($user->id_user)) {
+                $user->id_user = (string) Str::uuid();
             }
         });
     }
+
+    protected $attributes = [
+        'active' => true,       // garanti que a campo active receba true como padrão
+    ];
+
+    // public function profile()
+    // {
+    //     return $this->belongsTo(Profile::class);
+    // }
 }

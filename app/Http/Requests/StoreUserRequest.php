@@ -14,7 +14,6 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
 
-        dd('ess');
         return [
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',

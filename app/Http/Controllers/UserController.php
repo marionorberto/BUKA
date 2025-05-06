@@ -28,8 +28,6 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-
-        dd($request->all());
         try {
             User::create([
                 'firstname' => $request->firstname,
@@ -38,9 +36,10 @@ class UserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'role' => $request->role,
+                'active' => true,
             ]);
 
-            return redirect()->back()->with('success', 'Usuário criado com sucesso!');
+            return redirect(route('auth.login.show'))->with('success', 'Usuário criado com sucesso!');
         } catch (\Exception $e) {
             Log::error('Erro ao criar usuário: ' . $e->getMessage());
 

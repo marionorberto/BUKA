@@ -15,16 +15,18 @@
       <div class="card my-5">
       <form action="{{ route('users.store') }}" method="post" class="card-body">
         @csrf
+        @if ($errors->any())
+        <ul class="alert alert-danger ">
+        @foreach ($errors->all() as $error)
+      <li class="ps-1">{{ $error }}</li>
+      @endforeach
+        </ul>
+      @endif
         <div class="d-flex justify-content-between align-items-end mb-4">
         <h3 class="mb-0"><b>Cadastar-se como estudante</b></h3>
         <a href="{{ route('auth.login.show') }}" class="link-primary">Já tem conta?</a>
         </div>
-        @if ($errorMessage = session('error'))
-      <div class="alert alert-danger" role="alert"> {{ $errorMessage }} </div>
-      @endif
-        @if ($successMessage = session('success'))
-      <div class="alert alert-success" role="alert"> {{ $successMessage }} </div>
-      @endif
+
         <div class="row">
         <div class="col-md-6">
           <div class="form-group mb-3">
@@ -53,6 +55,7 @@
           </div>
         </div>
         </div>
+        <input type="hidden" name="role" value="student">
 
         <div class="form-group mb-3">
         <label class="form-label">Password</label>
