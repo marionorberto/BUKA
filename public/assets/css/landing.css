@@ -77,7 +77,6 @@ header {
   display: flex;
   align-items: center;
   min-height: 100vh;
-  filter: brightness(50);
 
   background-repeat: no-repeat;
   background-size: cover;
